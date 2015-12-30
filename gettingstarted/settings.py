@@ -76,26 +76,27 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'python_getting_started',
-#         'USER': 'fierce-citadel-2779',
-#         'PASSWORD': '',
-#         'HOST': 'localhost',
-#         'PORT': '5000',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'python_getting_started',
+        # 'USER': 'steveqiu',
+        # 'USER': 'fierce-citadel-2779',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '5000',
+    }
+}
 
 # Parse database configuration from $DATABASE_URL
 # heroku settings
-# DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config()
 # local settings
 # DATABASES['default'] =  dj_database_url.config(default='postgres://steveqiu:steve@localhost/steveqiu')
 # Enable Connection Pooling (if desired)
