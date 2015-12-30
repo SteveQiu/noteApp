@@ -14,5 +14,4 @@ urlpatterns = patterns('',
     url(r'^$', note.views.index, name='index'),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
-
 )
