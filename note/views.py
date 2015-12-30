@@ -5,4 +5,6 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the note index.")
+    # return HttpResponse("Hello, world. You're at the note index.")
+    context = {'init': 'hello world'}
+    return render(request, 'note/index.html', context)
