@@ -1,3 +1,8 @@
+# Database setup
+to update model: python manage.py migrate
+to create migration file for the update: python manage.py makemigrations note
+to start migrating the update: python manage.py sqlmigrate hello 0001
+
 # python-getting-started
 
 A barebones Python app, which can easily be deployed to Heroku.

@@ -10,10 +10,13 @@ def index(request):
 
 
 def db(request):
-
     greeting = Greeting()
+
+    # print Greeting()
     greeting.save()
+    # print [greeting]
+    # print Greeting.objects.all()
+    # print Greeting.objects.all()
 
-    greetings = Greeting.objects.all()
-
-    return render(request, 'db.html', {'greetings': greetings})
+    # return render(request, 'index.html')
+    return render(request, 'db.html', {'greetings': [greeting]})
