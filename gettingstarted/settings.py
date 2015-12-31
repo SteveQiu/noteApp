@@ -102,7 +102,7 @@ DATABASES['default'] =  dj_database_url.config()
 # DATABASES['default'] =  dj_database_url.config(default='postgres://steveqiu:steve@localhost/steveqiu')
 # Enable Connection Pooling (if desired)
 DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
-DATABASES['default']['NAME'] = 'python_getting_started'
+# DATABASES['default']['NAME'] = 'python_getting_started'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

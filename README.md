@@ -1,3 +1,7 @@
+# Heroku database setup
+To migrate database: heroku run python manage.py migrate
+To login database: heroku pg:psql
+
 # Database setup
 to update model: python manage.py migrate
 to create migration file for the update: python manage.py makemigrations note
