@@ -148,19 +148,30 @@
             <div class="span12">
               <div class="pricing-table">
                 <div class="color-666777">
-                  <h3>Sign Up Form</h3>
-                  <h4>
-                    <span class="price">Personal Note</span>
-                    <span class="time">For you only</span>
-                  </h4>
-                  <ul>
-                    <li>Name</li>
-                    <li>Account Id</li>
-                    <li>Password</li>
-                  </ul>
-                  <a href="#" class="buy">
-                    <span>Sign Up</span>
-                  </a>
+                  <form method="post" action="">
+                    <h3>Sign Up Form</h3>
+                    <h4>
+                      <span class="price">Personal Note</span>
+                      <span class="time">For you only</span>
+                    </h4>
+                    <ul>
+                      <li>
+                        <span class="span3">Name</span>
+                        <input tabindex="4" id="id" name="id" type="text" value="" class="span8" placeholder="User ID: ...">
+                      </li>
+                      <li>
+                        <span class="span3">Account Id</span>
+                        <input tabindex="2" id="pwd" name="pwd" type="text" value="" class="span8" placeholder="Password: ...">
+                      </li>
+                      <li>
+                        <span class="span3">Password</span>
+                        <input tabindex="3" id="email" name="email" type="text" value="" class="span8" placeholder="Email: ...">
+                      </li>
+                    </ul>
+                    <a href="#" class="buy">
+                      <span>Sign Up</span>
+                    </a>
+                  </form>
                 </div>
               </div>
             </div>
@@ -207,11 +218,10 @@
             <div id="contact-form">
               <form method="post" action="">
                 <fieldset>
-                  <input tabindex="4" id="name" name="name" type="text" value="" class="span12" placeholder="Name: ...">
-                  <input tabindex="2" id="email" name="email" type="text" value="" class="span12" placeholder="Email: ...">
-                  <input tabindex="3" id="www" name="www" type="text" value="" class="span12" placeholder="WWW: ...">
+                  <input tabindex="4" id="id" name="id" type="text" value="" class="span12" placeholder="User ID: ...">
+                  <input tabindex="2" id="pwd" name="pwd" type="text" value="" class="span12" placeholder="Password: ...">
                   <div class="actions">
-                    <button tabindex="3" type="submit" class="btn btn-succes btn-large">Send message</button>
+                    <button tabindex="3" type="submit" class="btn btn-succes btn-large">log In</button>
                   </div>
                 </fieldset>
               </form>

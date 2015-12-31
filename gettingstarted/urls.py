@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^$', note.views.index, name='index'),
-    url(r'^db', hello.views.db, name='db'),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^db/?', hello.views.db, name='db'),
+    url(r'^admin/?', include(admin.site.urls)),
+    url(r'.', note.views.index, name='index'),
 )
