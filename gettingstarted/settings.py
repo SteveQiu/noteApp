@@ -98,10 +98,9 @@ DATABASES = {
 # Parse database configuration from $DATABASE_URL
 # heroku settings
 DATABASES['default'] =  dj_database_url.config()
-# local settings
-# DATABASES['default'] =  dj_database_url.config(default='postgres://steveqiu:steve@localhost/steveqiu')
 # Enable Connection Pooling (if desired)
 DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+# local setting
 # DATABASES['default']['NAME'] = 'python_getting_started'
 
 # Internationalization

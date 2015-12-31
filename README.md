@@ -1,5 +1,5 @@
 # Heroku database setup
-To migrate database: heroku run python manage.py migrate
+To migrate database: heroku run python manage.py migrate note
 To login database: heroku pg:psql
 
 # Database setup
