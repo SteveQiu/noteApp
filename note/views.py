@@ -11,13 +11,23 @@ def index(request):
     return render(request, 'note/index.html', context)
 
 def signup(request):
-    account = Account(uid = 'sdq',pwd = 'sdq',email = 'sdq@sdq.com')
-    account.save()
-    return HttpResponse("sign up")
+    print request.POST
+    uid = request.POST['id']
+    pwd = request.POST['pwd']
+    email = request.POST['email']
+    count = Account.objects.filter(uid=uid).count()
+    if count>0:
+        return HttpResponse("id in use")
+    else:
+        account = Account(uid = uid,pwd = pwd,email = email)
+        account.save()
+        return HttpResponse("sign up")
+
 
 def signin(request):
     accounts_list = Account.objects.all()
-    output = ', '.join([account.uid for account in accounts_list])
+    count = Account.objects.filter(uid='sdq').count()
+    output = ', '.join([account.uid for account in accounts_list])+',Total:' + str(count)
     # return HttpResponse("signin")
     return HttpResponse(output)
 

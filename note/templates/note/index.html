@@ -148,7 +148,8 @@
             <div class="span12">
               <div class="pricing-table">
                 <div class="color-666777">
-                  <form method="post" action="">
+                  <form method="post" action="{% url 'signup' %}">
+                    {% csrf_token %}
                     <h3>Sign Up Form</h3>
                     <h4>
                       <span class="price">Personal Note</span>
@@ -156,20 +157,22 @@
                     </h4>
                     <ul>
                       <li>
-                        <span class="span3">Name</span>
-                        <input tabindex="4" id="id" name="id" type="text" value="" class="span8" placeholder="User ID: ...">
-                      </li>
-                      <li>
                         <span class="span3">Account Id</span>
-                        <input tabindex="2" id="pwd" name="pwd" type="text" value="" class="span8" placeholder="Password: ...">
+                        <input tabindex="4" id="id" name="id" type="text" value="" class="span8" placeholder="User ID: ..." pattern=".{4,}" required title="4 characters minimum">
                       </li>
                       <li>
                         <span class="span3">Password</span>
-                        <input tabindex="3" id="email" name="email" type="text" value="" class="span8" placeholder="Email: ...">
+                        <input tabindex="2" id="pwd" name="pwd" type="password" value="" class="span8" placeholder="Password: ..." pattern=".{8,}" required title="8 characters minimum">
+                      </li>
+                      <li>
+                        <span class="span3">Email</span>
+                        <input tabindex="3" id="email" name="email" type="email" value="" class="span8" placeholder="Email: ..." required>
                       </li>
                     </ul>
-                    <a href="#" class="buy">
-                      <span>Sign Up</span>
+                    <a class="buy">
+                      <span>
+                        <input style="width:100%;background:transparent;border:0 none;color:white;" type="submit" value="Sign Up" />
+                      </span>
                     </a>
                   </form>
                 </div>
