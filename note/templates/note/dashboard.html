@@ -1,0 +1,30 @@
+<div class="">
+  <h1>Welcome {{uid}}</h1>
+</div>
+{% if note_list %} {% for note in note_list %}
+<div class="">
+  <h1>{{ note.title }}</h1>
+  <p>
+    {{note.text}}
+  </p>
+</div>
+{% endfor %} {% else %}
+<p>No notes are available.</p>
+{% endif %}
+<form class="" action="{% url 'create' %}" method="post">
+  {% csrf_token %}
+  <div class="">
+    <div class="">
+      <label for="title">Title</label>
+    </div>
+    <input type="text" name="title">
+  </div>
+  <div class="">
+    <div class="">
+      <label for="text">Content</label>
+    </div>
+    <textarea name="text" rows="10" cols="50"></textarea>
+  </div>
+  <input type="submit" value="Create Note">
+</form>
+<a href="{% url 'signout' %}">log out</a>

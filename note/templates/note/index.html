@@ -219,15 +219,19 @@
           <div class="span6">
             <!-- start: Contact Form -->
             <div id="contact-form">
-              <form method="post" action="">
+              {% if authenticated %}
+              <a href="{% url 'dashboard' %}" class="btn btn-succes btn-large">Profile</a> {% else %}
+              <form method="post" action="{% url 'dashboard' %}">
+                {% csrf_token %}
                 <fieldset>
-                  <input tabindex="4" id="id" name="id" type="text" value="" class="span12" placeholder="User ID: ...">
-                  <input tabindex="2" id="pwd" name="pwd" type="text" value="" class="span12" placeholder="Password: ...">
+                  <input tabindex="4" id="id" name="id" type="text" value="" class="span12" placeholder="User ID: ..." pattern=".{4,}" required title="4 characters minimum">
+                  <input tabindex="2" id="pwd" name="pwd" type="password" value="" class="span12" placeholder="Password: ..." pattern=".{8,}" required title="8 characters minimum">
                   <div class="actions">
                     <button tabindex="3" type="submit" class="btn btn-succes btn-large">log In</button>
                   </div>
                 </fieldset>
               </form>
+              {% endif %}
             </div>
             <!-- end: Contact Form -->
           </div>
