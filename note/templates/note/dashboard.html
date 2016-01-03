@@ -1,30 +1,75 @@
-<div class="">
-  <h1>Welcome {{uid}}</h1>
-</div>
-{% if note_list %} {% for note in note_list %}
-<div class="">
-  <h1>{{ note.title }}</h1>
-  <p>
-    {{note.text}}
-  </p>
-</div>
-{% endfor %} {% else %}
-<p>No notes are available.</p>
-{% endif %}
-<form class="" action="{% url 'create' %}" method="post">
-  {% csrf_token %}
-  <div class="">
-    <div class="">
-      <label for="title">Title</label>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load staticfiles %}
+  <!-- start: Meta -->
+  <meta charset="utf-8">
+  <title>NoteApp</title>
+  <meta name="description" content="Small note application" />
+  <meta name="keywords" content="Note" />
+  <meta name="author" content="Steve" />
+  <!-- end: Meta -->
+  <!-- start: Mobile Specific -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- end: Mobile Specific -->
+  <!-- start: CSS -->
+  <link href="{% static 'note/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'note/bootstrap/css/bootstrap-theme.min.css' %}" rel="stylesheet">
+  <script type="text/javascript" src="{% static 'note/bootstrap/js/jquery.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'note/bootstrap/js/bootstrap.min.js'%}"></script>
+  <!-- end: CSS -->
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlec_
+    ode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <!-- list -->
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center" style="height:90px;">
+        <h1>Welcome {{uid}} <a href="{% url 'signout' %}" class="btn btn-default pull-right">log out</a></h1>
+      </div>
+      {% if note_list %} {% for note in note_list %}
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h3>{{ note.title }}</h3>
+            <p>{{note.text}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %} {% else %}
+      <p>No notes are available.</p>
+      {% endif %}
     </div>
-    <input type="text" name="title">
   </div>
-  <div class="">
-    <div class="">
-      <label for="text">Content</label>
+  <!-- note form -->
+  <div class="container" style="margin-bottom:70px;">
+    <div class="row">
+      <div class="col-xs-12">
+        <form class="" action="{% url 'create' %}" method="post">
+          {% csrf_token %}
+          <div class="">
+            <div class="">
+              <label for="title">Title</label>
+            </div>
+            <input type="text" name="title">
+          </div>
+          <div class="">
+            <div class="">
+              <label for="text">Content</label>
+            </div>
+            <textarea name="text" rows="10" cols="50"></textarea>
+          </div>
+          <input class="btn btn-success" type="submit" value="Create Note">
+        </form>
+      </div>
     </div>
-    <textarea name="text" rows="10" cols="50"></textarea>
   </div>
-  <input type="submit" value="Create Note">
-</form>
-<a href="{% url 'signout' %}">log out</a>
+</body>
+
+</html>
