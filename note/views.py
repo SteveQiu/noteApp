@@ -28,6 +28,8 @@ def signup(request):
 
 def dashboard(request):
     if not request.user.is_authenticated():
+        if 'id' not in request.POST:
+            return HttpResponseRedirect("/")
         uid = request.POST['id']
         pwd = request.POST['pwd']
         user = authenticate(username=uid, password=pwd)
