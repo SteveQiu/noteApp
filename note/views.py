@@ -24,7 +24,8 @@ def signup(request):
         user.save()
     except Exception as e:
         return HttpResponse(e)
-    return HttpResponse("Sign up successfully. Please login in the home page")
+    return render(request, 'note/signup.html')
+    # return HttpResponse("Sign up successfully. Please login in the home page")
 
 def dashboard(request):
     if not request.user.is_authenticated():
@@ -57,5 +58,8 @@ def create(request):
         return HttpResponseRedirect("/")
     title = request.POST['title']
     text = request.POST['text']
-    request.user.note_set.create(title = title, text = text)
+    try:
+        request.user.note_set.create(title = title, text = text)
+    except Exception as e:
+        return HttpResponse(e)
     return HttpResponseRedirect("/profile/dashboard")
